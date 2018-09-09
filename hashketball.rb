@@ -235,23 +235,19 @@ end
 #super bonus
 def long_name_steals_a_ton
   most_steal=0
+  max=0
+  steals=0
   game_hash.each do |home_away,data|
     data[:players].each do |key,value|
       if value[:steals]>most_steal
         most_steal=value[:steals]
       end
-    end
-  end
-  max=0
-  steals=0
-  game_hash.each do |home_away,data|
-    data[:players].each do |key,value|
       if key.length>max
         max=key.length
       steals=value[:steals]
-      end
     end
   end
+end
   if steals>most_steal
     return true
 end
