@@ -144,23 +144,22 @@ def team_colors(team_name)
 end
 
 def team_names 
-  arr=[]
-  game_hash.each do |home_away,data|
-    arr << data[:team_name]
+  
+  game_hash.map do |home_away,data|
+    data[:team_name]
   end
-  arr
+  
 end
 
 def player_numbers(team_name)
-  arr=[]
+  # arr=[]
   game_hash.each do |home_away,data|
-    data[:players].each do |key,value|
+    data[:players].map do |key,value|
        if data[:team_name]==team_name
-         arr << value[:number]
+        value[:number]
     end
   end
 end
-  arr
 end
       
 def player_stats(name)
